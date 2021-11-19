@@ -1,0 +1,195 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> My first form page </title>
+
+    </head>
+
+    <body>
+        <form method="post" action="mailto:name.surname@isik.edu.tr" name="myForm">
+
+            First Name: <input type="text" name="firstname" size="10" maxlength="15"/>
+            <br/>
+            Last Name: <input type="text" name="lastname" size="10" maxlength="15" />
+            <br/>
+            Sex: <input type="radio" name="sex" value="female">Female
+            <input type="radio" name="sex" value="male">Male
+            <!--name:sex dediğimizde ikisininde tek bir radiobuttona ait olduğunu belirtiyoruz. Yoksa ikiside ayrı ayrı tıklanabilirdi. -->
+            <br/>
+            <input type="checkbox" name="food" value="Pizza" > I like pizza <br>
+            <input type="checkbox" name="food" value="Hamburger" > Hamburger <br>
+            <input type="checkbox" name="food" value="Ice Cream" > Ice Cream <br>
+            <!--Eğer bu checkboxları birbirine bağlı olarak yöneteceksek nameleri aynı olmalı
+            Checkbox ile radio button arasındaki fark radiobuttonda sadece tek seçim yapabiliriz ama checkboxda hepsini birden de seçebiliriz-->
+            <br/>
+            Password: <input type="password" name="password" size="10" maxlength="10" />
+            <!--Burada input type kısmında password seçtiğimiz zaman kullanıcının girdiği bilgi * şeklinde gözükecek. Eğer bunu password 
+            olarak ayarlamazsak kullanıcı burayı normal girdiği sayılar olarak görür-->
+            <br/>
+            Your Favorite Car:
+            <select name="fav_car" size="3" multiple="multiple" >
+                <!--
+                    size 3 dersek listemizde 100 eleman olsa bile bunun ilk 3 tanesini kullanıcıya gösteriyor. Tek seferde 
+                    tüm elemanları göstermiyor. Multiple seçeneğinde de multiple seçersek controle basarak birden fazla seçenek seçebiliyoruz.
+                -->
+                <option value="volvo" selected>Volvo</option> <!--selected de seçilmiş olarak geliyor seçenek-->
+                <option value="audi">Audi</option>
+                <option value="mercedes">Mercedes</option>
+                <option value="bmw">BMW</option>
+            </select>
+            <br/>
+            Further Comments:
+            <textarea rows="5" cols="25" name="comments">
+                Please enter your comments here
+            </textarea>
+            <br/>
+            Please select your avatar:
+            <input type="file" name="file"/>
+            <br/>
+            <input type="reset" value="Reset Form"> <input type="submit" value="Submit Form">
+            <!--type reset yazarsak otomatikman reset butonu ekler. submit yazarsak da bilgileri gönderir. Bu göndermeyi de form etiketi içerisindeki action 
+            kısmına yazarız. Yani submite bastığımızda bu formun ne yapacağını aksiyonun içinde ne olduğu belirtir. Bir mail 
+        de atabilir bir url adresine de gidebilir.-->
+        </form>
+    
+        <label for="fname">First name:</label> <!--Burada label etiketi ile yaparsak ileride css ile kontrolümüz daha kolay olur. Sitilleri 
+            falan tek tek değiştirmemeiz
+        gerek yok label kullanırsak-->
+
+        <!--Form ve table kullanılırken dikkat edilecek husus table etiketinin değil form etiketinin içine table gömmemiz gerektiğidir. Yani ilk önce 
+        form etiketi açmalıyız sonrasında table etiketi açmalıyız-->
+        <form method="post" action="mailto:name.surname@isik.edu.tr" name="myNewForm">
+            <table width="400px" border="0" cellpadding="2" >
+                <!--iki tane table data olacağını belirtmek için cellpading = "2" yapıyoruz -->
+                <tr>
+                    <td><b>First Name:</b></td>
+                    <td><input type="text" name="firstname" size="10" maxlength="15"></td>
+                </tr>
+
+                <tr>
+                    <td><b>Last Name:</b></td>
+                    <td><input type="text" name="lastname" size="10" maxlength="15"></td>
+                </tr>
+
+                <tr>
+                    <td><b>Sex:</b></td>
+                    <td>
+                        <input type="radio" name="sex" value="female">Female
+                        <input type="radio" name="sex" value="male">Male 
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><b>Passwprd:</b></td>
+                    <td><input type="password" name="password" size="10" maxlength="10"></td>
+                </tr>
+
+                <tr>
+                    <td><b>Your Favorite Car:</b></td>
+                    <td>
+                        <select name="fav_car" size="3"multiple="multiple" >
+                            <option value="volvo"selected >Volvo</option>
+                            <option value="audi">Audi</option>
+                            <option value="mercedes">Mercedes</option>
+                            <option value="bmw">BMW</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><b>Furthrt Comments:</b></td>
+                    <td><textarea name="comments" cols="30" rows="10"></textarea></td>
+                </tr>
+
+                <tr>
+                    <td colspan="2"><!--colspan sayesinde sütünları birleştiriyoruz-->
+                        <input type="reset" value="Reset Form">
+                        <input type="submit" value="Submit Form">
+                    </td>
+                </tr>
+
+
+            </table>
+        </form>
+
+        <label for="datemax">Enter a date before 2019-01-01:</label>
+        <input type="date" id="datemax" name="datemax" max="2039-12-31" min="2019-01-01"><br><br>
+
+        <form action="/Home/Register">
+            <!--Burada action kısmında bir sayfayı verirsek sayfalar arası veri aktarımı da yapabiliriz. Buna ileride değineceğiz-->
+            <p>
+                Name 
+                <input type="text" name="name" required placeholder="enter your name here">
+                <!--Burada required placeholder kısmında form kısmında kutunun içerisine ne girmemiz gerektiğini söylüyoruz kullanıcıya.
+                Boş kalmasını istemediğimiz alanlar varsa oraları da required şeklinde işaretkliyoruz-->
+            </p>
+            <!--Form kısımlarını p etiketi içerisine alırsak daha düzenli gözüküyor. br etiketinde p ye göre daha birbirine yakın çıkıyor <br> -->
+            <p>
+                Surname
+                <input type="text" name="surname" required placeholder="enter your surnma here">
+                <!-- <br> -->
+            </p>
+            <p>
+                e-mail
+                <input type="email" name="email" > <!--burada type email olduğu zaman input kısmında içinde @ işareti geçiyor mu 
+                    geçimiyor mu diye kontrol ediyor-->
+            </p>
+            <p>
+                Password
+                <input type="password" name="remember" >
+            </p>
+
+            <p>
+                Remember Me
+                <input type="checkbox" name="remember" >
+            </p>
+
+            <p>
+                <input type="radio" name="gender" > Male
+                <input type="radio" name="gender" >Female
+            </p>
+
+            <p>
+                <b>Hobbies</b>
+                <br>
+                Cinema
+                <input type="checkbox" name="myhob" >
+                Reading Book
+                <input type="checkbox" name="myhob">
+                Sports
+                <input type="checkbox" name="myhob">
+            </p>
+
+            <p>
+                <b>Doğum Yeri</b>
+                <br>
+                <select name="From" id="">
+                    <option value="k">Kocaeli</option>
+                    <option value="a">Ankara</option>
+                    <option value="i1">İstanbul</option>
+                    <option value="i2">İzmir</option>
+                    <option value="ad1">Adana</option>
+
+                </select>
+
+            </p>
+
+            <p>
+                <b>Ziyaret Edilen Şehirler  </b>
+                <br>
+                <select multiple name="visited cities/city" >
+                    <option value="k">Kocaeli</option>
+                    <option value="a">Ankara</option>
+                    <option value="i1">İstanbul</option>
+                    <option value="i2">İzmir</option>
+                </select>
+            </p>
+            <input type="submit" value="save">
+            
+        </form>
+
+
+
+
+    </body>
+</html>
